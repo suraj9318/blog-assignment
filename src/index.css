@@ -57,3 +57,16 @@ body{
   background-color: #d44c0d;
 }
 
+.footer{
+  height: 3rem;
+  background-color: white; 
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+ display: flex;
+}
+
+.footer h5{
+  text-align: center;
+  margin: auto;
+}
