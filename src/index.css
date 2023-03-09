@@ -13,6 +13,12 @@ body{
 a{
   text-decoration: none;
 }
+.error{
+  color: #d41a1a;
+  font-size: 15px;
+  margin: 4px 0 8px 0;
+  font-weight: bolder;
+}
 .header {
   display: flex;
   height: 5rem;
@@ -184,7 +190,7 @@ a{
   }
   form{
     width: 50%;
-    background-color: #6c6cbd;
+    background-color: #b4b568;
     padding: 5rem;
     margin-top: 10rem;
   }
