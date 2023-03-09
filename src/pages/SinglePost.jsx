@@ -1,10 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import postImg from '../assets/post.jpg'
 const SinglePost = () => {
   return (
     <div className='post-page'>
         <h1>Demo Title</h1>
-        <button className='edit'>Edit</button>
+        <Link to='/update-post'>
+            <button className='edit'>Edit</button>
+        </Link>
+        <button className='delete my-5'>Delete</button>
         <p className="info">
             <a href="">user1</a>
           </p>

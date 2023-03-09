@@ -1,13 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import postImg from '../assets/post.jpg'
 const Post = () => {
   return (
         <div className="post">
         <div className="image">
-            <img src={postImg} alt="" />
+            <Link to='/single-post'>
+                <img src={postImg} alt="" />
+            </Link>
         </div>
         <div className="texts">
+            <Link to='/single-post'>
             <h2>How a single engineer brought down Twitter</h2>
+            </Link>
 
         <p className="info">
             <a href="">user1</a>

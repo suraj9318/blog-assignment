@@ -1,19 +1,24 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <header className='header'>
         <div className="logo-container">
-            <h3>IBLOG</h3>
+            <Link to='/'>
+                <h3>IBLOG</h3>
+            </Link>
         </div>
         
             <ul>
-                <li className='create-post'>Create a Post</li>
+            <Link to='/create-post'>
+                <li className='create-post-li'>Create a Post</li>
+            </Link>
                 <li className='remove-all-post'>Remove all Post</li>
             </ul>
         
     </header> 
-    
+
   )
 }
 
