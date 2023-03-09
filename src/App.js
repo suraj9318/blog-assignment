@@ -1,8 +1,9 @@
+import AllPost from "./pages/AllPost";
 
 function App() {
   return (
     <div className="App">
-    <h1>Hello </h1>
+        <AllPost/>
     </div>
   );
 }
