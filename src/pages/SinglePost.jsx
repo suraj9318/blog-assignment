@@ -58,13 +58,19 @@ const SinglePost = () => {
           </p>
       </div>
     })}
-    <div className="comment-section">
-        <input type="text" className='input' />
-        <button className=''>comment</button>
+        <div className="comment-container">
+        <div className="comment-section">
+          <input type="text" className='input' />
+          <button className=''>comment</button>
 
-    </div>
-      <div className="comments">
-         <p>Awesome</p> <span>Edit</span> <span>Delete</span>
+      </div>
+        <div className="comments">
+          <p>Awesome</p> 
+          <div className="btn-container">
+              <span className='edit'>Edit</span> <span className='delete my-5'>Delete</span>
+          </div> 
+        </div>
+
       </div>
    </div>
   )
