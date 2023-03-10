@@ -1,25 +1,35 @@
 import React from 'react'
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { createPost } from '../features/post/postSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const CreatePost = () => {
-
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const formik = useFormik({
     initialValues: {
       title:"",
-      file:"",
       summary:""
     },
     
     validationSchema: Yup.object({
       title: Yup.string().required("Title is required !"),
-      file: Yup.mixed().required('A file is required !'),
       summary: Yup.string()
         .min(30, "Minimum 30 characters")
         .required("Summary is required!"),
     }),
     onSubmit: values => {
-      console.log(JSON.stringify(values, null, 2));
+
+      // let value = JSON.stringify(values, null, 2);
+      const id = new Date().getTime();
+      Object.assign(values, {id: id})
+       const newValue = values;
+      
+      dispatch(createPost(newValue));
+      navigate('/')
+
     }
   });
   return (
@@ -38,22 +48,7 @@ const CreatePost = () => {
             <p className='error'>{formik.errors.title}</p>
           )}
 
-        
-        <label className='label' htmlFor="">Image</label>
-        <input className='input'
-         type="file" 
-          name='file'
-        
-        value={formik.values.file}
-        onChange={formik.handleChange}
-
-        />
-        {formik.errors.file && formik.touched.file && (
-            <p className='error'>{formik.errors.file}</p>
-          )}
-
-
-
+            
         <label className='label' htmlFor="">Summary</label>
 
         <textarea rows={10} 

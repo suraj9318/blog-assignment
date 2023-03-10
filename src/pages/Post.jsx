@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import postImg from '../assets/post.jpg'
-const Post = () => {
+const Post = ({title,summary}) => {
+    console.log(summary)
   return (
         <div className="post">
         <div className="image">
@@ -11,13 +12,13 @@ const Post = () => {
         </div>
         <div className="texts">
             <Link to='/single-post'>
-            <h2>How a single engineer brought down Twitter</h2>
+            <h2>{title}</h2>
             </Link>
 
         <p className="info">
-            <a href="">user1</a>
+            <a href="">Anonymous{Math.floor(Math.random() * 10) + 1}</a>
         </p>
-        <p className='summary'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque soluta perspiciatis id odio natus, obcaecati ut odit inventore. Laudantium iste minus fugit? Vero aperiam et quia. Voluptatem provident praesentium alias? lorem</p></div>
+        <p className='summary'>{summary}</p></div>
     </div>
   )
 }

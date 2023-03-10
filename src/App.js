@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SinglePost from "./pages/SinglePost";
 import CreatePost from "./pages/CreatePost";
 import UpdatePost from "./pages/UpdatePost";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "./componets/Navbar";
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
         <Route path='/create-post' element={<CreatePost/>} />
         <Route path='/update-post' element={<UpdatePost/>} />
       </Routes>
+      <ToastContainer position='top-center' />
     </BrowserRouter>
 
         
