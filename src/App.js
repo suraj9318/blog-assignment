@@ -13,9 +13,9 @@ function App() {
     <Navbar/>
       <Routes>
         <Route path='/' element={<AllPost/>} />
-        <Route path='/single-post' element={<SinglePost/>} />
+        <Route path='/single-post/:id' element={<SinglePost/>} />
         <Route path='/create-post' element={<CreatePost/>} />
-        <Route path='/update-post' element={<UpdatePost/>} />
+        <Route path='/update-post/:id' element={<UpdatePost/>} />
       </Routes>
       <ToastContainer position='top-center' />
     </BrowserRouter>
