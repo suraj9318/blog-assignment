@@ -23,7 +23,6 @@ const postSlice = createSlice({
             console.log(payload)
             let post = getPostFromLocalStorage()
             const newData =  post.map((item)=>{
-                debugger
                 if(item.id === parseInt(payload.id)){
                     return {...item,title: payload.title, summary : payload.summary }
                 }
@@ -31,10 +30,19 @@ const postSlice = createSlice({
             })
             addUserToLocalStorage(newData);
             toast.success('Post Updated Successfully');
-        }           
+        },
+        deletePost : (state,{payload})=>{
+            let post = getPostFromLocalStorage()
+            const newData =  post.filter((item)=>{
+                return item.id !==payload
+            })
+            addUserToLocalStorage(newData);
+            toast.success('Post Deleted Successfully');
+
+        }
       },
 
 })
 
-export const {updataPost, createPost} = postSlice.actions;
+export const {updataPost, createPost, deletePost} = postSlice.actions;
 export default postSlice.reducer;

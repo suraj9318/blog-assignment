@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import postImg from '../assets/post1.png'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { deletePost } from '../features/post/postSlice'
 
 const SinglePost = () => {
+  const navigate = useNavigate();
   const [data,setData] = useState([])
   const {post} = useSelector((store) => store.post);
   const {id}=useParams()
-
+  const dispatch = useDispatch()
   useEffect(()=>{
   
       const singleData = post.filter((item)=>{
@@ -22,7 +24,8 @@ const SinglePost = () => {
   },[])
 
   const handleDelete =(id) => {
-    console.log(id);
+    dispatch(deletePost(id)); 
+    navigate('/')
   }
   
   if(!post){
@@ -33,7 +36,8 @@ const SinglePost = () => {
     return <h1>Something went wrong please try again..</h1>
   }
   return (
-    data.map((item,key)=>{
+  <div>
+   { data.map((item,key)=>{
       return  <div className='post-page' key={key}>
           <h1>{item.title}</h1>
           <Link to={`/update-post/${item.id}`}>
@@ -53,8 +57,16 @@ const SinglePost = () => {
             }
           </p>
       </div>
-    })
-   
+    })}
+    <div className="comment-section">
+        <input type="text" className='input' />
+        <button className=''>comment</button>
+
+    </div>
+      <div className="comments">
+         <p>Awesome</p> <span>Edit</span> <span>Delete</span>
+      </div>
+   </div>
   )
 }
 
