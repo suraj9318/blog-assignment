@@ -8,18 +8,18 @@ const AllPost = () => {
   const {post} = useSelector((store) => store.post);
 
   useEffect(()=>{
+    console.log(post)
     setPostData(post)
-  },[postData])
+  },[post,postData])
 
-  
-  if(!post){
+
+  if(post.length < 1){
     return <h1>No Post Found please create a post</h1>
   }
   return (
     <>
     {
       postData.map((item,key)=>{
-        console.log(item)
        const {title,summary,id} = item;
        return <Post key={key} title={title} summary={summary} id={id}/>
       })

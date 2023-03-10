@@ -1,6 +1,6 @@
 import { createSlice} from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
-import { addUserToLocalStorage , getPostFromLocalStorage } from '../../utils/localstorage';
+import { addUserToLocalStorage , getPostFromLocalStorage, removePostFromLocalStorage } from '../../utils/localstorage';
 
 const initialState = {
     post : getPostFromLocalStorage() || [],
@@ -13,14 +13,12 @@ const postSlice = createSlice({
     initialState,
     reducers: {
         createPost: (state,{ payload }) => {
-            state.loading = false;
             state.post = [...state.post,payload];
             addUserToLocalStorage(state.post);
             toast.success('Post Created Successfully');
         },
 
         updataPost: (state,{ payload })=>{
-            console.log(payload)
             let post = getPostFromLocalStorage()
             const newData =  post.map((item)=>{
                 if(item.id === parseInt(payload.id)){
@@ -39,10 +37,14 @@ const postSlice = createSlice({
             addUserToLocalStorage(newData);
             toast.success('Post Deleted Successfully');
 
-        }
+        },
+        removeAllPost : (state,)=>{
+            removePostFromLocalStorage();
+        },
+      
       },
 
 })
 
-export const {updataPost, createPost, deletePost} = postSlice.actions;
+export const {updataPost, removeAllPost,createPost, deletePost,} = postSlice.actions;
 export default postSlice.reducer;

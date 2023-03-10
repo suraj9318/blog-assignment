@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom'
 import postImg from '../assets/post1.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { deletePost } from '../features/post/postSlice'
+import Comment from '../componets/Comment'
 
 const SinglePost = () => {
   const navigate = useNavigate();
@@ -58,20 +59,7 @@ const SinglePost = () => {
           </p>
       </div>
     })}
-        <div className="comment-container">
-        <div className="comment-section">
-          <input type="text" className='input' />
-          <button className=''>comment</button>
-
-      </div>
-        <div className="comments">
-          <p>Awesome</p> 
-          <div className="btn-container">
-              <span className='edit'>Edit</span> <span className='delete my-5'>Delete</span>
-          </div> 
-        </div>
-
-      </div>
+        <Comment id={id}/>
    </div>
   )
 }

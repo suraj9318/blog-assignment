@@ -8,4 +8,8 @@ export const getPostFromLocalStorage = () => {
     return user;
   };
 
+  export const removePostFromLocalStorage = () => {
+    localStorage.removeItem('post');
+  };
+  
   

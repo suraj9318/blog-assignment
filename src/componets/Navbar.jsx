@@ -1,7 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useDispatch} from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { removeAllPost } from '../features/post/postSlice'
+
 
 const Navbar = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const handleRemove = () =>{
+        dispatch(removeAllPost())
+        toast.success('Posts removed successfully !!')
+        navigate('/')
+    }
   return (
     <header className='header'>
         <div className="logo-container">
@@ -14,7 +25,7 @@ const Navbar = () => {
             <Link to='/create-post'>
                 <li className='create-post-li'>Create a Post</li>
             </Link>
-                <li className='remove-all-post'>Remove all Post</li>
+                <li className='remove-all-post' onClick={handleRemove}>Remove all Post</li>
             </ul>
         
     </header> 

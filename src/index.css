@@ -282,8 +282,11 @@ a{
     background-color: rgb(22, 139, 155);
     color: white;
     border-radius: 5px;
+    cursor: pointer;
   }
-
+  .comment-section button:hover{
+    background-color: rgb(15, 105, 117);
+  }
   .comments{
     margin-inline: 3rem; 
     display: flex;
